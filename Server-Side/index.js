@@ -6,12 +6,12 @@ import todoRoutes from "./routes/todos.js";
 app.use(cors());
 app.use(express.json());
 
-app.get('/', (req, res) => {
-    res.send("Hello World");
-})
+app.get("/", (req, res) => {
+  res.send({ message: "Hello World" });
+});
 
-app.use('/todos', todoRoutes);
+app.use("/todos", todoRoutes);
 
 app.listen(5000, () => {
-    console.log("Server is running on port 5000");
-})
+  console.log("Server is running on port 5000");
+});
