@@ -19,7 +19,6 @@ router.post("/", async (req, res) => {
   }
 });
 
-
 // Get all todos
 router.get("/", async (req, res) => {
   try {
@@ -78,5 +77,16 @@ router.delete("/:id", async (req, res) => {
 router.put('/:id', async (req, res) => {
 
 })
+
+router.post("/hd/users", async (req, res) => {
+  const { title, contact } = req.body;
+
+  try {
+    const post = await prisma.post.create({ data: { title, contact } });
+    res.status(201).json(post);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 export default router;

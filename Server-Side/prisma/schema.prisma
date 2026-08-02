@@ -12,15 +12,21 @@ datasource db {
   provider = "postgresql"
 }
 
-model todo {
-  todo_id Int @id @default(autoincrement())
-	description String @db.VarChar(225)
-	completed Boolean @default(false)
+model Todo {
+  todo_id     Int     @id @default(autoincrement())
+  description String  @db.VarChar(225)
+  completed   Boolean @default(false)
 }
 
 model Post {
-  id Int @id @default(autoincrement())
-  title String
-  contact String
+  id        Int      @id @default(autoincrement())
+  title     String
+  contact   String
+  createdAt DateTime @default(now())
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
   createdAt DateTime @default(now())
 }
